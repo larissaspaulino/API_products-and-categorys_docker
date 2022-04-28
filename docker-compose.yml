@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  api:
+    container_name: api
+    image: api
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    environment:
+      - DB_USER=larissa
+      - DB_HOST=database
+      - DB=defaultdb
+      - DB_PASSWORD=docker
+      - DB_PORT=5432
+  database:
+    container_name: database
+    image: postgres:12
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=larissa
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=defaultdb
+    volumes:
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
