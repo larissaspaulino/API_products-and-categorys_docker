@@ -10,11 +10,6 @@ router.get('/', productsController.index)
 router.get('/:id', productsController.show)
 router.patch('/:id', productsController.update)
 router.delete('/:id', productsController.delete)
-
-/* 
 router.get('/category/:category_id', productsController.showOneCategory)
-
-*/
-
 
 export default router

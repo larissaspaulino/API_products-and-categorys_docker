@@ -11,7 +11,7 @@ const updateCategoryService = async ({ category_id, name }) => {
             throw new Error("Not found any course with this id");
           }
         
-        return res.rows
+        return res.rows[0]
     } catch (err) {
         throw new Error(err.message)
         

@@ -7,8 +7,6 @@ const deleteProductService = async ({ product_id }) => {
             [product_id]
         )
 
-        
-
         if (!res.rows.length) {
             throw new Error("Not found any course with this id");
           }

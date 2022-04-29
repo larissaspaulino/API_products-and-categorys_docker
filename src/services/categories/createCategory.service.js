@@ -7,7 +7,7 @@ const createCategoryService = async ({ name }) => {
             'INSERT INTO categories(name) VALUES($1) RETURNING *',
             [name]
         )
-        return res.rows[0]
+        return { message: "Product created", category: res.rows[0] }
     } catch (err) {
         throw new Error(err.message)
     }

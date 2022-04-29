@@ -18,7 +18,7 @@ describe("Testing success cases in the routes", () => {
 
     testCategory.id = response.body.category.id;
     testProduct.category_id = response.body.category.id;
-
+    
     expect(response.status).toBe(201);
     expect(response.body.message).toBeDefined();
     expect(response.body.category.id).toBeDefined();

@@ -13,7 +13,7 @@ async store(request, response) {
         const category = await createCategoryService({ name })
         return response.status(201).json(category)
     } catch (err) {
-        return response.status(500).json(err.message)
+        return response.status(400).json({ message: 'It was not possible to create a category. Try again'})
     }
 }
 async index(request, response) {
@@ -21,7 +21,7 @@ async index(request, response) {
         const categories = await listCategoriesService()
         return response.status(200).json(categories)
     } catch (err) {
-        return response.status(500).json(err.message)
+        return response.status(400).json({ message: 'It was not possible to list categories. Try again'})
     }
 }
 async show(request, response) {
@@ -33,7 +33,7 @@ async show(request, response) {
 
     } catch (err) {
   
-        return response.status(500).json(err.message)
+        return response.status(400).json({ message: 'It was not possible to find this category. Try again'})
         
     }
 }
@@ -43,10 +43,10 @@ async update(request, response) {
 
     try {
         const category = await updateCategoryService({ category_id: id, name })
-        return response.status(200).json({ message: 'Category updated', categoria: category})
+        return response.status(200).json({ message: 'Category updated', category: { name: `${category.name} Atualizado`, ...category }})
 
     } catch (err) {
-        return response.status(500).json(err.message)
+        return response.status(400).json({ message: 'It was not possible to update this category. Try again'})
         
     }
 
@@ -56,10 +56,10 @@ async delete(request, response) {
 
     try {
         await deleteCategoryService({ category_id })
-        return response.status(204).json('ok')
+        return response.status(200).json({ message: 'Category deleted' })
 
     } catch (err) {
-        return response.status(500).json(err.message)
+        return response.status(400).json({ message: 'It was not possible to delete this categpry. Try again'})
         
     }
 

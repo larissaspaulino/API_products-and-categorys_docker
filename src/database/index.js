@@ -5,7 +5,7 @@ const database = new Client(
     ? {
         user: 'postgres',
         host: 'localhost',
-        database: 'test_products',
+        database: 'tests_products',
         password: 'postgres',
         port: 5432,
       }
