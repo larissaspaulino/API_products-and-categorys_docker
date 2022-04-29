@@ -6,13 +6,10 @@ const categoriesController = new CategoriesController()
 const router = Router()
 
 router.post('', categoriesController.store)
-/* 
-router.get('/', categoriesController.index)
+router.get('', categoriesController.index)
 router.get('/:id', categoriesController.show)
 router.patch('/:id', categoriesController.update)
 router.delete('/:id', categoriesController.delete)
-
-*/
 
 
 export default router
