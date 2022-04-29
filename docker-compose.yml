@@ -12,7 +12,7 @@ services:
     environment:
       - DB_USER=larissa
       - DB_HOST=database
-      - DB=defaultdb
+      - DB=products_management
       - DB_PASSWORD=docker
       - DB_PORT=5432
   database:
@@ -23,6 +23,6 @@ services:
     environment:
       - POSTGRES_USER=larissa
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=defaultdb
+      - POSTGRES_DB=products_management
     volumes:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql

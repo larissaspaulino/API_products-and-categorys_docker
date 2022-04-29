@@ -7,12 +7,17 @@ const updateProductService = async ({
   category_id = '' 
 }) => {
   try {
+
+    if (!name && !price && !category_id) {
+      throw new Error ('You need to specify something to be updated.')
+    }
+    
     const res = await database.query('SELECT * FROM products WHERE id = $1', [
       product_id,
     ])
 
     if (!res.rows.length) {
-      throw new Error('Not found any course with this id')
+      throw new Error('Not found any course with this id.')
     }
 
     const [product] = res.rows
@@ -26,7 +31,7 @@ const updateProductService = async ({
       [product.name, product.price, product.category_id, product_id]
     )
 
-    return updatedProduct.rows
+    return updatedProduct.rows[0]
   } catch (err) {
     throw new Error(err.message)
   }

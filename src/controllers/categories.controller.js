@@ -11,7 +11,7 @@ async store(request, response) {
 
     try {
         const category = await createCategoryService({ name })
-        return response.status(201).json(category)
+        return response.status(201).json({ message: "Category created", category: category })
     } catch (err) {
         return response.status(400).json({ message: 'It was not possible to create a category. Try again'})
     }
