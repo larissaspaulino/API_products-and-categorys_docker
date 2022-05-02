@@ -1,7 +1,7 @@
 import database from '../../database'
 
 const showOneCategoryProductService = async ({ category_id }) => {
-    console.timeLog(category_id)
+    
   try {
     const res = await database.query(
       'SELECT p.name, p.price, c.name category FROM products p INNER JOIN categories c ON c.id = p.category_id WHERE p.category_id = $1',

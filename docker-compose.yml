@@ -11,15 +11,15 @@ services:
       - database
     environment:
       - DB_USER=larissa
-      - DB_HOST=database
+      - DB_HOST=host.docker.internal
       - DB=products_management
       - DB_PASSWORD=docker
-      - DB_PORT=5432
+      - DB_PORT=5433
   database:
     container_name: database
     image: postgres:12
     ports:
-      - 5432:5432
+      - 5433:5432
     environment:
       - POSTGRES_USER=larissa
       - POSTGRES_PASSWORD=docker
